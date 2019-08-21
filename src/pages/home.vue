@@ -1,6 +1,6 @@
 <template>
   <f7-page class="color-theme-orange">
-    <f7-navbar class="navbar color-theme-orange">
+    <f7-navbar class="navbar color-theme-deeppurple">
       <f7-nav-left>
         <f7-link icon-if-ios="f7:keyboard" icon-if-md="material:keyboard" panel-open="left"></f7-link>
       </f7-nav-left>

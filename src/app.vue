@@ -51,7 +51,8 @@
             </f7-list-item>
           </f7-list>
           <f7-list>
-            <f7-list-button title="Sign In" login-screen-close></f7-list-button>
+            <f7-list-button @click="firebaseLogin" title="Sign In" ></f7-list-button>
+            <!-- <login-screen-close> -->
             <f7-block-footer>
               <p>Click Sign In to close Login Screen</p>
             </f7-block-footer>
@@ -66,7 +67,7 @@
 <script>
 // Import Routes
 import routes from './routes.js'
-
+import firebase from 'firebase';
 export default {
   data() {
     return {
@@ -78,7 +79,30 @@ export default {
         // App routes
         routes: routes,
       },
+      form: {
+        email: 'antony@mail.com',
+        password: '1234679',
+      },
+      error:''
     }
+  },
+  methods:{
+    firebaseLogin(){
+      this.error = ''
+      if(this.form.email && this.form.password){
+        return firebase.auth().signInWithEmailAndPassword(this.form.email, this.form.password)
+      .then(()=>{
+        //this.$router.push({name:'muestra'})
+        console.log('Registrado')
+      }).catch(err=>{
+        this.error = err.message
+      })
+      }
+      else {
+        this.error = "Todos los campos son requeridos"
+      }
+      
+    },
   }
 }
 </script>

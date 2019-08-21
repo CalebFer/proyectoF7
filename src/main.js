@@ -20,6 +20,18 @@ import App from './app';
 // Init F7 Vue Plugin
 Framework7.use(Framework7Vue)
 
+import firebase from 'firebase';
+import 'firebase/firestore';
+import firebaseConfig from '@/config/firebase';
+firebase.initializeApp(firebaseConfig);
+
+const firestore = firebase.firestore();
+
+export const db = firestore;
+
+
+
+
 // Init App
 new Vue({
   el: '#app',
